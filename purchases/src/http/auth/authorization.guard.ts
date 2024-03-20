@@ -1,7 +1,5 @@
 import { CanActivate, ExecutionContext, Injectable, UnauthorizedException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import jwt from 'express-jwt';
-import { expressJwtSecret } from 'jwks-rsa';
 import { promisify } from 'util';
 import { auth } from 'express-oauth2-jwt-bearer'
 
