@@ -1,18 +1,20 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config'
-import { TestController } from './http.controller';
+import { TestResolver } from './http.resolver';
 import { DatabaseModule } from 'src/database/database.module';
 import { GraphQLModule } from '@nestjs/graphql';
-import path from 'path';
+import path, { join } from 'path';
+import { ApolloDriver } from '@nestjs/apollo';
 
 @Module({
   imports: [
     ConfigModule.forRoot(), 
     DatabaseModule,
     GraphQLModule.forRoot({
-      autoSchemaFile: path.resolve(process.cwd(), 'src/schema.gql') 
+      driver: ApolloDriver,
+      autoSchemaFile: join(process.cwd(), 'src/schema.gql')
     })
   ],
-  controllers: [TestController]
+  providers: [TestResolver]
 })
 export class HttpModule {}
