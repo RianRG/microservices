@@ -6,4 +6,15 @@ export class Product{
   @Field(() => ID)
   id: string;
 
+  @Field()
+  title: string;
+
+  @Field()
+  slug: string;
+
+  @Field(() => Date)
+  createdAt: Date
+
+  @Field(() => Date)
+  updatedAt: Date
 }
