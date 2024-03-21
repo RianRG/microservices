@@ -24,6 +24,7 @@ export class StudentResolver{
   me(
     @CurrentUser() user: { sub: string }
   ){
+    console.log(user.sub)
     return this.studentService.getStudentByAuthUserId(user.sub);
   }
 

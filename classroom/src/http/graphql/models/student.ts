@@ -8,5 +8,4 @@ export class Student{
 
   @Field(() => [Enrollment])
   enrollments: Enrollment[]
-
 }

@@ -11,4 +11,6 @@ export class Course{
   @Field()
   slug: string
 
+  @Field(() => Date)
+  createdAt: Date
 }
