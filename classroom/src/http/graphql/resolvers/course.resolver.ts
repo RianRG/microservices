@@ -1,8 +1,9 @@
 import { Resolver } from "@nestjs/graphql";
-import { Student } from "../models/student";
 import { Course } from "../models/course";
+import { CourseService } from "src/services/course.service";
 
 @Resolver(() => Course)
 export class CourseResolver{
+  constructor(private courseService: CourseService){};
 
 }
