@@ -27,5 +27,16 @@ type Student {
 
 type Query {
   students: [Student!]!
+  me: Student!
+  enrollments: [Enrollment!]!
   courses: [Course!]!
+  course(id: String!): Course!
+}
+
+type Mutation {
+  createCourse(data: CreateCourseInput!): Course!
+}
+
+input CreateCourseInput {
+  title: String!
 }

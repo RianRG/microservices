@@ -16,4 +16,12 @@ export class StudentService{
       }
     })
   }
+
+  async getStudentByAuthUserId(authUserId: string){
+    return await this.prisma.student.findFirst({
+      where: {
+        authUserId
+      }
+    })
+  }
 }

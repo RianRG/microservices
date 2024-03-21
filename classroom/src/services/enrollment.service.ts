@@ -1,6 +1,11 @@
 import { Injectable } from "@nestjs/common";
 import { PrismaService } from "src/database/prisma/prisma.service";
 
+interface GetByCourseAndStudentParams{
+  courseId: string;
+  studentId: string;
+}
+
 @Injectable()
 export class EnrollmentService{
   constructor(private prisma: PrismaService){};
@@ -26,5 +31,17 @@ export class EnrollmentService{
         createdAt: 'desc'
       }
     })
+  }
+
+  async getEnrollmentByCourseAndStudentId(
+    { courseId, studentId }: GetByCourseAndStudentParams
+    ){
+      return await this.prisma.enrollment.findFirst({
+        where: {
+          courseId,
+          studentId,
+          canceledAt: null
+        }
+      })
   }
 }
