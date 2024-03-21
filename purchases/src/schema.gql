@@ -18,6 +18,7 @@ type Purchase {
   id: ID!
   status: String!
   createdAt: DateTime!
+  product: Product!
 }
 
 type Query {
