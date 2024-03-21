@@ -1,5 +1,10 @@
 import { Injectable } from "@nestjs/common";
 import { PrismaService } from "src/database/prisma/prisma.service";
+import slugify from 'slugify';
+
+interface CreateCourseParams{
+  title: string;
+}
 
 @Injectable()
 export class CourseService{
@@ -13,6 +18,27 @@ export class CourseService{
     return await this.prisma.course.findUnique({
       where: {
         id
+      }
+    })
+  }
+
+  async createCourse({ title }: CreateCourseParams){
+    
+    const slug = slugify(title, { lower: true });
+
+    const slugAlreadyExists = await this.prisma.course.findFirst({
+      where: {
+        slug
+      }
+    })
+
+    if(slugAlreadyExists)
+      throw new Error('A product with the same slug already exists!')
+
+    return await this.prisma.course.create({
+      data: {
+        title,
+        slug
       }
     })
   }
