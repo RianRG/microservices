@@ -8,4 +8,12 @@ export class StudentService{
   async listStudents(){
     return await this.prisma.student.findMany();
   }
+
+  async getStudentById(id: string){
+    return await this.prisma.student.findUnique({
+      where: {
+        id
+      }
+    })
+  }
 }

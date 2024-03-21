@@ -33,8 +33,9 @@ model Course {
 }
 
 model Enrollment {
-  courseId  String @unique
-  studentId String @unique
+  id        String @id @default(uuid())
+  courseId  String
+  studentId String
 
   canceledAt DateTime?
   createdAt  DateTime  @default(now())
