@@ -4,14 +4,14 @@ import { Purchase } from "./purchase";
 @ObjectType()
 export class Customer{
   @Field(() => ID)
-  id: string;
+  id: string
 
   @Field()
-  authUserId: string;
+  authUserId: string
 
   @Field(() => Date)
   createdAt: Date
 
   @Field(() => [Purchase])
-  purchases: Purchase
+  purchases: Purchase[]
 }
