@@ -5,4 +5,8 @@ import { EnrollmentService } from "src/services/enrollment.service";
 @Resolver(() => Enrollment)
 export class EnrollmentResolver{
   constructor(private enrollmentService: EnrollmentService){};
+
+  enrollments(){
+    return this.enrollmentService.listEnrollments()
+  }
 }
