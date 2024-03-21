@@ -41,6 +41,7 @@ enum PurchaseStatus {
 }
 
 model Purchase {
+  id         String @id @default(uuid())
   customerId String @unique
   productId  String @unique
 

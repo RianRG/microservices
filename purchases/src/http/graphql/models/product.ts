@@ -14,7 +14,4 @@ export class Product{
 
   @Field(() => Date)
   createdAt: Date
-
-  @Field(() => Date)
-  updatedAt: Date
 }
