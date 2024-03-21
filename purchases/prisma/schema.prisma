@@ -16,6 +16,8 @@ datasource db {
 model Customer {
   id String @id @default(uuid())
 
+  authUserId String? @unique
+
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
 
@@ -42,8 +44,8 @@ enum PurchaseStatus {
 
 model Purchase {
   id         String @id @default(uuid())
-  customerId String @unique
-  productId  String @unique
+  customerId String
+  productId  String
 
   status PurchaseStatus @default(PENDING)
 
