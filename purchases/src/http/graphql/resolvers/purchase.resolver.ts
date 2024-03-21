@@ -1,6 +1,6 @@
 import { UseGuards } from "@nestjs/common";
 import { AuthorizationGuard } from "../../auth/authorization.guard";
-import { Query, Resolver, Mutation, Args, ResolveField, Root, Parent, Context } from "@nestjs/graphql";
+import { Query, Resolver, Mutation, Args, ResolveField, Root } from "@nestjs/graphql";
 import { PurchaseService } from "src/services/purchase.service";
 import { ProductService } from "src/services/product.service";
 import { Purchase } from "../models/purchase";

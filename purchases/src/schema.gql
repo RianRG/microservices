@@ -21,9 +21,17 @@ type Purchase {
   product: Product!
 }
 
+type Customer {
+  id: ID!
+  authUserId: String!
+  createdAt: DateTime!
+  purchases: [Purchase!]!
+}
+
 type Query {
   products: [Product!]!
   purchases: [Purchase!]!
+  me: Customer!
 }
 
 type Mutation {
