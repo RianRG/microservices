@@ -24,4 +24,12 @@ export class StudentService{
       }
     })
   }
+
+  async createStudent(authUserId: string){
+    return await this.prisma.student.create({
+      data: {
+        authUserId
+      }
+    })
+  }
 }
