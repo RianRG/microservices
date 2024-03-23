@@ -19,14 +19,14 @@ export class StudentResolver{
     return this.studentService.listStudents()
   }
 
-  @Query(() => Student)
-  @UseGuards(AuthorizationGuard)
-  me(
-    @CurrentUser() user: { sub: string }
-  ){
-    console.log(user.sub)
-    return this.studentService.getStudentByAuthUserId(user.sub);
-  }
+  // @Query(() => Student)
+  // @UseGuards(AuthorizationGuard)
+  // me(
+  //   @CurrentUser() user: { sub: string }
+  // ){
+  //   console.log(user.sub)
+  //   return this.studentService.getStudentByAuthUserId(user.sub);
+  // }
 
   @ResolveField()
   enrollments(@Root() student: Student){

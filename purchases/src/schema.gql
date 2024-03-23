@@ -2,6 +2,16 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+directive @key(fields: String!) on OBJECT | INTERFACE
+
+directive @extends on OBJECT | INTERFACE
+
+directive @external on OBJECT | FIELD_DEFINITION
+
+directive @requires(fields: String!) on FIELD_DEFINITION
+
+directive @provides(fields: String!) on FIELD_DEFINITION
+
 type Product {
   id: ID!
   title: String!
@@ -21,17 +31,15 @@ type Purchase {
   product: Product!
 }
 
-type Customer {
-  id: ID!
-  authUserId: String!
-  createdAt: DateTime!
+type User {
+  authUserId: ID!
   purchases: [Purchase!]!
 }
 
 type Query {
   products: [Product!]!
   purchases: [Purchase!]!
-  me: Customer!
+  me: User!
 }
 
 type Mutation {

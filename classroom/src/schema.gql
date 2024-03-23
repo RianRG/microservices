@@ -22,13 +22,12 @@ type Enrollment {
 }
 
 type Student {
-  id: ID!
+  authUserId: ID!
   enrollments: [Enrollment!]!
 }
 
 type Query {
   students: [Student!]!
-  me: Student!
   enrollments: [Enrollment!]!
   courses: [Course!]!
   course(id: String!): Course!
